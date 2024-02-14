@@ -1,29 +1,32 @@
 #include "lists.h"
 
 /**
-* insert_node - Adition of all
-* @head: the poiter
-* @number: num
-* Return: 0
-**/
-
+ *  * insert_node - Adition
+ *   * @head: Pointer
+ *    * @number: Number
+ *     * Return: nothing
+ *      */
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *node = *head, *new;
 
 	new = malloc(sizeof(listint_t));
-if (new == NULL)
-return (NULL);
+	if (new == NULL)
+		return (NULL);
 	new->n = number;
-if (node == NULL || node->n >= number)
-{
-	new->next = node;
-	*head = new;
-return (new);
-}
-while (node && node->next && node->next->n < number)
-node = node->next;
-new->next = node->next;
-node->next = new;
-return (new);
+
+	if (node == NULL || node->n >= number)
+	{
+		new->next = node;
+		*head = new;
+															                return (new);
+
+	}
+
+	while (node && node->next && node->next->n < number)
+	        node = node->next;
+	
+	new->next = node->next;
+	node->next = new;
+        return (new);
 }
